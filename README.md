@@ -9,7 +9,38 @@ Create/Edit dungeons form the Legend of Zelda Project
 ## Save format
 
 ### xml layout
-TODO
+```xml
+<dungeon name="..." version="...">
+  <description>...</description>
+  <credits>...</credits>
+  <items>
+    <item id="..." name="...">
+      <description>...</description>
+      TODO
+    </item>
+  </items>
+  <monsters>
+    <monster id="..." name="...">
+      <description>...</description>
+      TODO
+    </monster>
+  </monsters>
+  <rooms>
+    <room id="...">
+      <description>...</description>
+      <connections>
+        <connection direction="..." id="..." />
+      </connections>
+      <items>
+        <item id="..." />
+      </items>
+      <monsters>
+        <monster id="..." />
+      </monsters>
+    </room>
+  </rooms>
+</dungeon>
+```
 
 ### map layout
 - num items(int)
