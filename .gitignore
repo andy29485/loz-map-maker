@@ -1,1 +1,4 @@
 /bin/
+*.map
+*.class
+*.jar
