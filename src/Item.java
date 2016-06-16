@@ -51,7 +51,7 @@ public class Item {
    */
   public boolean use(Room room, Player player) {
     switch (this.nType) {
-      // TODO
+      // TODO use item
     }
     return false;
   }

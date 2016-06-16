@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dungeon {// TODO make rooms,items,and monsters maps? This would
@@ -53,7 +54,9 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
    * Default constructor
    */
   public Dungeon() {
-    // TODO
+    this.rooms = new ArrayList<Room>();
+    this.items = new ArrayList<Item>();
+    this.monsters = new ArrayList<Monster>();
   }
 
   /**
@@ -99,12 +102,12 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
    * Save map as both a .map and temporary .xml file
    */
   public void save() {
-    // TODO - save as .xml
+    // TODO save as .xml
 
     try {
       RandomAccessFile raf =
           new RandomAccessFile(this.strFilename + ".map", "rw");
-      // TODO - save as .map
+      // TODO save as .map
       raf.close();
     }
     catch (FileNotFoundException e) {
@@ -179,7 +182,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Get the Version for this dungeon
-   * 
+   *
    * @return the version
    * @see Dungeon#strVersion
    */
@@ -189,7 +192,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Set the Version for this dungeon
-   * 
+   *
    * @param version
    *          the version to set
    * @see Dungeon#strVersion
@@ -200,7 +203,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Get the Description for this dungeon
-   * 
+   *
    * @return the description
    * @see Dungeon#strDescription
    */
@@ -210,7 +213,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Set the Description for this dungeon
-   * 
+   *
    * @param description
    *          the description to set
    * @see Dungeon#strDescription
@@ -221,7 +224,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Get the Credits for this dungeon
-   * 
+   *
    * @return the credits
    * @see Dungeon#strCredits
    */
@@ -231,7 +234,7 @@ public class Dungeon {// TODO make rooms,items,and monsters maps? This would
 
   /**
    * Set the Credits for this dungeon
-   * 
+   *
    * @param credits
    *          the credits to set
    * @see Dungeon#strCredits

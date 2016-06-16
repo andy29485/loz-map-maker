@@ -1,6 +1,18 @@
-public class Main {
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+public class Main extends Application {
+  @Override
+  public void start(Stage stage) {
+    Scene scene = new Scene(new DungeonPane(), 700, 400);
+
+    stage.setTitle("LoZ Map Maker v0.1");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public static void main(String[] args) {
+    launch(args);
   }
 }
