@@ -34,9 +34,27 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 public class DungeonPane extends TabPane {
+  /**
+   * The dungeon that this Pane edits(backend for this pane).
+   */
   Dungeon     dungeon;
+  /**
+   * List of labels that are used to represent the IDs of items.
+   *
+   * Used when deleting an item(the IDs need to be changed).
+   */
   List<Label> itemIdLabels;
+  /**
+   * List of labels that are used to represent the IDs of monsters.
+   *
+   * Used when deleting a monster(the IDs need to be changed).
+   */
   List<Label> monsterIdLabels;
+  /**
+   * List of labels that are used to represent the IDs of rooms.
+   *
+   * Used when deleting an room(the IDs need to be changed).
+   */
   List<Label> roomIdLabels;
   Tab         itemsTab;
   Tab         monstersTab;
@@ -346,6 +364,15 @@ public class DungeonPane extends TabPane {
         });
   }
 
+  /**
+   * Creates a tab for the GUI used to edit the item.
+   *
+   * Send null as tmp_monster to create a new item.
+   *
+   * @param tmp_item
+   *          item to use for tab creation(or null)
+   * @return a javafx Node to be used as the content of the tab
+   */
   private Node getEmptyItemTabContent(Item tmp_item) {
     final Item item;
     int id = dungeon.getItems().size();
@@ -416,6 +443,15 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Creates a tab for the GUI used to edit the monster.
+   *
+   * Send null as tmp_monster to create a new monster.
+   *
+   * @param tmp_monster
+   *          monster to use for tab creation(or null)
+   * @return a javafx Node to be used as the content of the tab
+   */
   private Node getEmptyMonsterTabContent(Monster tmp_monster) {
     final Monster monster;
     int id = dungeon.getMonsters().size();
@@ -488,6 +524,15 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Creates a tab for the GUI used to edit the room.
+   *
+   * Send null as tmp_room to create a new room.
+   *
+   * @param tmp_room
+   *          room to use for tab creation(or null)
+   * @return a javafx Node to be used as the content of the tab
+   */
   private Node getEmptyRoomTabContent(Room tmp_room) {
     final Room room;
     int id = dungeon.getRooms().size();
@@ -696,16 +741,33 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Class used to simplify storage of room connections in the table view,
+   * really just a struct.
+   *
+   * @author az
+   *
+   */
   public static class Connection {
     private String dir;
     private String id;
 
+    /**
+     * Create a connection from a direction and a room id
+     *
+     * @param dir
+     *          direction of connection
+     * @param id
+     *          room id for connection
+     */
     public Connection(String dir, int id) {
       this.dir = dir;
       this.id = String.valueOf(id);
     }
 
     /**
+     * Get the direction for this connection
+     *
      * @return the direction
      */
     public String getDir() {
@@ -713,6 +775,8 @@ public class DungeonPane extends TabPane {
     }
 
     /**
+     * Set the direction for this connection
+     *
      * @param dir
      *          the direction to set
      */
@@ -721,6 +785,8 @@ public class DungeonPane extends TabPane {
     }
 
     /**
+     * Get the id for this connection
+     *
      * @return the id
      */
     public String getId() {
@@ -728,6 +794,8 @@ public class DungeonPane extends TabPane {
     }
 
     /**
+     * Set the id for this connection
+     *
      * @param id
      *          the id to set
      */
