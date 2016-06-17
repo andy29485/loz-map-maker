@@ -1,3 +1,4 @@
+package loz.mapmaker;
 
 public class GameCharacter {
   private int nHealth;
