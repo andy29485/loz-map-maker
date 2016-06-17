@@ -1,1 +1,7 @@
 /bin/
+*jar
+*class
+*html
+*map
+.classpath
+*xml
