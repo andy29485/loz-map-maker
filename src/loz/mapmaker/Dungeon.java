@@ -18,10 +18,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class Dungeon {// TODO make rooms,items,and monsters maps?
-                      // This would allow dropping rooms/items/monsters at
-                      // points, using up
-                      // less memory.
+/**
+ * Class containing the map as a whole, lists/maps of other items exist here.
+ *
+ * @author az
+ *
+ */
+public class Dungeon {
   /**
    * List of rooms composing this dungeon, list indices are the ids
    */
@@ -64,6 +67,8 @@ public class Dungeon {// TODO make rooms,items,and monsters maps?
    * End credits, thanks, and other things like that.
    */
   private String                strCredits;
+  // TODO may need to add a Player to the dungeon
+  // initial stats/items need to be saved
 
   /**
    * Default constructor
@@ -343,7 +348,8 @@ public class Dungeon {// TODO make rooms,items,and monsters maps?
     }
   }
 
-  // TODO - load single bin items
+  // TODO - load single bin items/monsters/rooms(methods)
+  // Maybe even use these methods within loadBin(String)?
 
   /**
    * Save map as both a .map and temporary .xml file

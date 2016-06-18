@@ -1,5 +1,12 @@
 package loz.mapmaker;
 
+/**
+ * Class used to store information about items found in the dungeon/player
+ * inventory.
+ *
+ * @author az
+ *
+ */
 public class Item {
   /**
    * Name of item.
@@ -58,6 +65,8 @@ public class Item {
   }
 
   /**
+   * Get the name of the item.
+   *
    * @return the strName
    */
   public String getName() {
@@ -65,6 +74,8 @@ public class Item {
   }
 
   /**
+   * Set the name of the item.
+   *
    * @param strName
    *          the strName to set
    */
@@ -73,6 +84,8 @@ public class Item {
   }
 
   /**
+   * Get the description of the item.
+   *
    * @return the strDescription
    */
   public String getDescription() {
@@ -80,6 +93,8 @@ public class Item {
   }
 
   /**
+   * Set the description for the item.
+   *
    * @param strDescription
    *          the strDescription to set
    */
@@ -88,6 +103,8 @@ public class Item {
   }
 
   /**
+   * Get the item type.
+   *
    * @return the nType
    */
   public int getType() {
@@ -95,6 +112,8 @@ public class Item {
   }
 
   /**
+   * Set the item type.
+   *
    * @param nType
    *          the nType to set
    */

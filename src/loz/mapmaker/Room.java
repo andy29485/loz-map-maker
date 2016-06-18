@@ -1,9 +1,16 @@
 package loz.mapmaker;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class string information of rooms in the dungeon and what they contain.
+ *
+ * @author az
+ *
+ */
 public class Room {
   /**
    * Map of direction string to other room id
@@ -14,7 +21,7 @@ public class Room {
    */
   private List<Integer>        items;
   /**
-   * List of ids of monsters that reside in this room
+   * List of IDs of monsters that reside in this room
    */
   private List<Integer>        monsters;
   /**
@@ -46,9 +53,9 @@ public class Room {
   }
 
   /**
-   * Get the item ids of items in this room
+   * Get the item IDs of items in this room
    *
-   * @return list of item ids
+   * @return list of item IDs
    * @see Room#items
    */
   public List<Integer> getItems() {
@@ -56,9 +63,9 @@ public class Room {
   }
 
   /**
-   * Get the monster ids of monsters in this room
+   * Get the monster IDs of monsters in this room
    *
-   * @return list of monster ids
+   * @return list of monster IDs
    * @see Room#monsters
    */
   public List<Integer> getMonsters() {
