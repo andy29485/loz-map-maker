@@ -1,5 +1,11 @@
 package loz.mapmaker;
 
+/**
+ * Class storing info on monsters that may appear in the dungeon.
+ * 
+ * @author az
+ *
+ */
 public class Monster extends GameCharacter {
   /**
    * Name of monster class.
@@ -20,6 +26,8 @@ public class Monster extends GameCharacter {
     this.strName = "";
     this.strDescription = "";
   }
+  // TODO maybe the monster also has an inventory(add to GameCharacter)
+  // could be used for drop items/making monsters stronger
 
   /**
    * Get the description of the monster

@@ -33,6 +33,12 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
+/**
+ * Main pane for the map edittor
+ * 
+ * @author az
+ *
+ */
 public class DungeonPane extends TabPane {
   /**
    * The dungeon that this Pane edits(backend for this pane).
@@ -56,10 +62,22 @@ public class DungeonPane extends TabPane {
    * Used when deleting an room(the IDs need to be changed).
    */
   List<Label> roomIdLabels;
+  /**
+   * Tab containing more tabs for editting items
+   */
   Tab         itemsTab;
+  /**
+   * Tab containing more tabs for editting monsters
+   */
   Tab         monstersTab;
+  /**
+   * Tab containing more tabs for editting rooms
+   */
   Tab         roomsTab;
 
+  /**
+   * Set up the dungeon pane. Create basic things that are needed.
+   */
   public DungeonPane() {
     super();
     this.setSide(Side.LEFT);
@@ -91,6 +109,13 @@ public class DungeonPane extends TabPane {
 
   }
 
+  /**
+   * Create a Pane to store general information associated with the dungeon.
+   *
+   * Will also include buttons to save and load the dungeon.
+   *
+   * @return A Pane that will modify general dungeon information
+   */
   private Node createDungeonPane() {
 
     // create main Nodes
@@ -191,8 +216,17 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Create a Pane to store tabs representing items in the dungeon
+   *
+   * @param items
+   *          Map of room IDs to Item objects that will be used for initial
+   *          data.
+   *
+   *          If null, a single blank Item will be created and added.
+   * @return A TabPane that will store tabs for each item in the dungeon
+   */
   private Node createItemPane(Map<Integer, Item> items) {
-
     TabPane pane = new TabPane();
 
     if (items == null || items.size() == 0)
@@ -207,8 +241,17 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Create a Pane to store tabs representing monsters in the dungeon
+   *
+   * @param monsters
+   *          Map of monster IDs to Monster objects that will be used for
+   *          initial data.
+   *
+   *          If null, a single blank Monster will be created and added.
+   * @return A TabPane that will store tabs for each monster in the dungeon
+   */
   private Node createMonsterPane(Map<Integer, Monster> monsters) {
-
     TabPane pane = new TabPane();
 
     if (monsters == null || monsters.size() == 0)
@@ -223,8 +266,17 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Create a Pane to store tabs representing rooms in the dungeon
+   *
+   * @param rooms
+   *          Map of room IDs to Room objects that will be used for initial
+   *          data.
+   *
+   *          If null, a single blank Room will be created and added.
+   * @return A TabPane that will store tabs for each room in the dungeon
+   */
   private Node createRoomPane(Map<Integer, Room> rooms) {
-
     TabPane pane = new TabPane();
 
     if (rooms == null || rooms.size() == 0)
@@ -239,6 +291,31 @@ public class DungeonPane extends TabPane {
     return pane;
   }
 
+  /**
+   * Create a new tab for a game object.
+   *
+   * Values for type:<br>
+   * <ol start=0>
+   * <li>item</li>
+   * <li>monster</li>
+   * <li>room</li>
+   * </ol>
+   *
+   * @param tabPane
+   *          TabPane to which to add new tab
+   * @param newTabName
+   *          tab title, should be null or "+"
+   * @param isCloseable
+   *          should be true unless this is the "+" tab
+   * @param type
+   *          what type of game object this tab represents
+   * @param obj
+   *          game object from which to load initial data.
+   *
+   *          if null, then a new game object of specified type will be created
+   *          and added to the dungeon
+   * @return a new Tab with specified properties
+   */
   private Tab addNewTab(final TabPane tabPane, String newTabName,
       boolean isCloseable, int type, Object obj) {
     final Tab newTab;
@@ -346,6 +423,21 @@ public class DungeonPane extends TabPane {
 
   }
 
+  /**
+   * Set action for '+' tab to create a new tab on click, but not to focus
+   *
+   * Values for type:<br>
+   * <ol start=0>
+   * <li>item</li>
+   * <li>monster</li>
+   * <li>room</li>
+   * </ol>
+   *
+   * @param tabPane
+   *          the TabPane in which the '+' tab to change resides
+   * @param type
+   *          the type of tabs to create(item, monster, room)
+   */
   private void setBehaviourForPlusTabClick(final TabPane tabPane, int type) {
     tabPane.getSelectionModel().selectedItemProperty()
         .addListener(new ChangeListener<Tab>() {
@@ -367,7 +459,7 @@ public class DungeonPane extends TabPane {
   /**
    * Creates a tab for the GUI used to edit the item.
    *
-   * Send null as tmp_monster to create a new item.
+   * Send null as tmp_item to create a new item.
    *
    * @param tmp_item
    *          item to use for tab creation(or null)
